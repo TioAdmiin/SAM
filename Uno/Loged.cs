@@ -40,6 +40,11 @@ namespace Uno
                 btnMarcarEntrada.Enabled = true;
                 btnMarcarSalida.Enabled = false;
             }
+
+            if (user.Admin == true)
+            {
+                btnAdministrar.Enabled = true;
+            }
         }
 
         private bool CheckEntrada()
@@ -126,6 +131,11 @@ namespace Uno
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Loged_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

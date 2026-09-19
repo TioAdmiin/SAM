@@ -33,6 +33,7 @@
             this.btnMarcarSalida = new System.Windows.Forms.Button();
             this.btnAdministrar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -85,11 +86,22 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // lblError
+            // 
+            this.lblError.ForeColor = System.Drawing.Color.RosyBrown;
+            this.lblError.Location = new System.Drawing.Point(12, 408);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(776, 33);
+            this.lblError.TabIndex = 7;
+            this.lblError.Text = "Error: No se han encontrado errores.";
+            this.lblError.Visible = false;
+            // 
             // Loged
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAdministrar);
             this.Controls.Add(this.btnMarcarSalida);
@@ -97,6 +109,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "Loged";
             this.Text = "Loged";
+            this.Load += new System.EventHandler(this.Loged_Load);
             this.ResumeLayout(false);
 
         }
@@ -108,5 +121,6 @@
         private System.Windows.Forms.Button btnMarcarSalida;
         private System.Windows.Forms.Button btnAdministrar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label lblError;
     }
 }
