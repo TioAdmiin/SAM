@@ -74,6 +74,11 @@ namespace Uno
         private void btnMarcarEntrada_Click(object sender, EventArgs e)
         {
             if (CheckEntrada()) { return; }
+            //Verificar dia laboral
+            if(!user.UserWorkDays.Where(x => x.DiaSemana == (int)DateTime.Today.DayOfWeek).Any()){
+                MessageBox.Show("Hoy no es un día laboral para usted, no puede marcar entrada.");
+                return;
+            }
             Entradas new_entrada = new Entradas();
             new_entrada.UserId = user.Id;
             new_entrada.Fecha = DateTime.Today;
@@ -102,7 +107,7 @@ namespace Uno
         }
 
         private void btnMarcarSalida_Click(object sender, EventArgs e)
-        {
+        { 
             if (CheckSalida()){ return; }
             Salidas new_salida = new Salidas();
             new_salida.UserId = user.Id;
@@ -133,9 +138,10 @@ namespace Uno
             this.Close();
         }
 
-        private void Loged_Load(object sender, EventArgs e)
+        private void btnAdministrar_Click(object sender, EventArgs e)
         {
-
+            new Admin(user).Show();
+            this.Close();
         }
     }
 }

@@ -28,114 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.button6 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnEntradas = new System.Windows.Forms.Button();
+            this.btnSalida = new System.Windows.Forms.Button();
+            this.btnAtrasos = new System.Windows.Forms.Button();
+            this.btnSalidasAnticipadas = new System.Windows.Forms.Button();
+            this.btnFaltas = new System.Windows.Forms.Button();
+            this.dgvReportes = new System.Windows.Forms.DataGridView();
+            this.calendarDia = new System.Windows.Forms.MonthCalendar();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.checkCualquiera = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnEntradas
             // 
-            this.button1.Location = new System.Drawing.Point(48, 236);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEntradas.Location = new System.Drawing.Point(48, 236);
+            this.btnEntradas.Name = "btnEntradas";
+            this.btnEntradas.Size = new System.Drawing.Size(235, 23);
+            this.btnEntradas.TabIndex = 0;
+            this.btnEntradas.Text = "Mostrar Entradas";
+            this.btnEntradas.UseVisualStyleBackColor = true;
+            this.btnEntradas.Click += new System.EventHandler(this.btnEntradas_Click);
             // 
-            // button2
+            // btnSalida
             // 
-            this.button2.Location = new System.Drawing.Point(48, 265);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(235, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSalida.Location = new System.Drawing.Point(48, 265);
+            this.btnSalida.Name = "btnSalida";
+            this.btnSalida.Size = new System.Drawing.Size(235, 23);
+            this.btnSalida.TabIndex = 1;
+            this.btnSalida.Text = "Mostrar Salidas";
+            this.btnSalida.UseVisualStyleBackColor = true;
+            this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
             // 
-            // button3
+            // btnAtrasos
             // 
-            this.button3.Location = new System.Drawing.Point(48, 294);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(235, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAtrasos.Location = new System.Drawing.Point(48, 294);
+            this.btnAtrasos.Name = "btnAtrasos";
+            this.btnAtrasos.Size = new System.Drawing.Size(235, 23);
+            this.btnAtrasos.TabIndex = 2;
+            this.btnAtrasos.Text = "Mostrar Atrasos";
+            this.btnAtrasos.UseVisualStyleBackColor = true;
+            this.btnAtrasos.Click += new System.EventHandler(this.btnAtrasos_Click);
             // 
-            // button4
+            // btnSalidasAnticipadas
             // 
-            this.button4.Location = new System.Drawing.Point(48, 323);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(235, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSalidasAnticipadas.Location = new System.Drawing.Point(48, 323);
+            this.btnSalidasAnticipadas.Name = "btnSalidasAnticipadas";
+            this.btnSalidasAnticipadas.Size = new System.Drawing.Size(235, 23);
+            this.btnSalidasAnticipadas.TabIndex = 3;
+            this.btnSalidasAnticipadas.Text = "Mostrar Salidas anticipadas";
+            this.btnSalidasAnticipadas.UseVisualStyleBackColor = true;
+            this.btnSalidasAnticipadas.Click += new System.EventHandler(this.btnSalidasAnticipadas_Click);
             // 
-            // button5
+            // btnFaltas
             // 
-            this.button5.Location = new System.Drawing.Point(48, 352);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(235, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnFaltas.Location = new System.Drawing.Point(48, 352);
+            this.btnFaltas.Name = "btnFaltas";
+            this.btnFaltas.Size = new System.Drawing.Size(235, 23);
+            this.btnFaltas.TabIndex = 4;
+            this.btnFaltas.Text = "Mostrar Faltas";
+            this.btnFaltas.UseVisualStyleBackColor = true;
+            this.btnFaltas.Click += new System.EventHandler(this.btnFaltas_Click);
             // 
-            // dataGridView1
+            // dgvReportes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(350, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(438, 407);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReportes.Location = new System.Drawing.Point(350, 22);
+            this.dgvReportes.Name = "dgvReportes";
+            this.dgvReportes.Size = new System.Drawing.Size(438, 407);
+            this.dgvReportes.TabIndex = 5;
             // 
-            // monthCalendar1
+            // calendarDia
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(48, 22);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 6;
+            this.calendarDia.Location = new System.Drawing.Point(48, 22);
+            this.calendarDia.MaxSelectionCount = 1;
+            this.calendarDia.Name = "calendarDia";
+            this.calendarDia.ShowTodayCircle = false;
+            this.calendarDia.TabIndex = 6;
+            this.calendarDia.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarDia_DateChanged);
             // 
-            // button6
+            // btnSalir
             // 
-            this.button6.Location = new System.Drawing.Point(48, 406);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(235, 23);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnSalir.Location = new System.Drawing.Point(48, 406);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnSalir.Size = new System.Drawing.Size(235, 23);
+            this.btnSalir.TabIndex = 7;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // checkCualquiera
+            // 
+            this.checkCualquiera.AutoSize = true;
+            this.checkCualquiera.Location = new System.Drawing.Point(48, 196);
+            this.checkCualquiera.Name = "checkCualquiera";
+            this.checkCualquiera.Size = new System.Drawing.Size(89, 17);
+            this.checkCualquiera.TabIndex = 8;
+            this.checkCualquiera.Text = "Cualquier día";
+            this.checkCualquiera.UseVisualStyleBackColor = true;
             // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.checkCualquiera);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.calendarDia);
+            this.Controls.Add(this.dgvReportes);
+            this.Controls.Add(this.btnFaltas);
+            this.Controls.Add(this.btnSalidasAnticipadas);
+            this.Controls.Add(this.btnAtrasos);
+            this.Controls.Add(this.btnSalida);
+            this.Controls.Add(this.btnEntradas);
             this.Name = "Reports";
             this.Text = "Reports";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnEntradas;
+        private System.Windows.Forms.Button btnSalida;
+        private System.Windows.Forms.Button btnAtrasos;
+        private System.Windows.Forms.Button btnSalidasAnticipadas;
+        private System.Windows.Forms.Button btnFaltas;
+        private System.Windows.Forms.DataGridView dgvReportes;
+        private System.Windows.Forms.MonthCalendar calendarDia;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.CheckBox checkCualquiera;
     }
 }

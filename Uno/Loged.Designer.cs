@@ -75,6 +75,7 @@
             this.btnAdministrar.TabIndex = 4;
             this.btnAdministrar.Text = "Administrar";
             this.btnAdministrar.UseVisualStyleBackColor = true;
+            this.btnAdministrar.Click += new System.EventHandler(this.btnAdministrar_Click);
             // 
             // btnSalir
             // 
@@ -109,7 +110,6 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "Loged";
             this.Text = "Loged";
-            this.Load += new System.EventHandler(this.Loged_Load);
             this.ResumeLayout(false);
 
         }

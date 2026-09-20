@@ -52,6 +52,7 @@
             this.btnReportes.TabIndex = 3;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnUsers
             // 
@@ -61,6 +62,7 @@
             this.btnUsers.TabIndex = 4;
             this.btnUsers.Text = "Administrar Usuarios";
             this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnSalir
             // 
