@@ -105,7 +105,6 @@
             this.calendarDia.Name = "calendarDia";
             this.calendarDia.ShowTodayCircle = false;
             this.calendarDia.TabIndex = 6;
-            this.calendarDia.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendarDia_DateChanged);
             // 
             // btnSalir
             // 
