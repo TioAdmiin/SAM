@@ -23,13 +23,12 @@ namespace Uno
             dgvReportes.Columns.Clear();
             if (checkCualquiera.Checked)
             {
-                dgvReportes.DataSource = db.Entradas.ToList();
+                dgvReportes.DataSource = db.Entradas.ToList().Select(x => new { x.Id, x.Fecha, x.Hora, x.Tipo, x.Users.FullName }).ToList();
             }
             else
             {
-                dgvReportes.DataSource = db.Entradas.ToList().Where(x => x.Fecha == calendarDia.SelectionStart.Date).ToList();
+                dgvReportes.DataSource = db.Entradas.Where(x => x.Fecha == calendarDia.SelectionStart.Date).ToList().Select(x => new { x.Id, x.Fecha, x.Hora, x.Tipo, x.Users.FullName }).ToList();
             }
-            dgvReportes.Columns["Users"].Visible = false;
         }
 
         private void btnSalida_Click(object sender, EventArgs e)
@@ -37,13 +36,12 @@ namespace Uno
             dgvReportes.Columns.Clear();
             if (checkCualquiera.Checked)
             {
-                dgvReportes.DataSource = db.Salidas.ToList();
+                dgvReportes.DataSource = db.Salidas.ToList().Select(x => new { x.Id, x.Fecha, x.Hora, x.Tipo, x.Users.FullName }).ToList();
             }
             else
             {
-                dgvReportes.DataSource = db.Salidas.ToList().Where(x => x.Fecha == calendarDia.SelectionEnd.Date).ToList();
+                dgvReportes.DataSource = db.Salidas.Where(x => x.Fecha == calendarDia.SelectionEnd.Date).ToList().Select(x => new { x.Id, x.Fecha, x.Hora, x.Tipo, x.Users.FullName }).ToList();
             }
-            dgvReportes.Columns["Users"].Visible = false;
         }
 
         private void btnAtrasos_Click(object sender, EventArgs e)
@@ -51,12 +49,13 @@ namespace Uno
             dgvReportes.Columns.Clear();
             if (checkCualquiera.Checked)
             {
-                dgvReportes.DataSource = db.Entradas.ToList().Where(x => x.Tipo == "Atrasado").ToList();
+                dgvReportes.DataSource = db.Entradas.ToList().Where(x => x.Tipo == "Atrasado").ToList().Select(x => new { x.Id, x.Fecha, x.Hora, x.Tipo, x.Users.FullName }).ToList();
             }
             else
             {
-                dgvReportes.DataSource = dgvReportes.DataSource = db.Entradas.ToList().Where(x => x.Tipo == "Atrasado").ToList().Where(x => x.Fecha == calendarDia.SelectionEnd.Date).ToList();
+                dgvReportes.DataSource = db.Entradas.ToList().Where(x => x.Tipo == "Atrasado" && x.Fecha == calendarDia.SelectionEnd.Date).ToList().Select(x => new { x.Id, x.Fecha, x.Hora, x.Tipo, x.Users.FullName }).ToList();
             }
+
         }
 
         private void btnSalidasAnticipadas_Click(object sender, EventArgs e)
@@ -64,11 +63,11 @@ namespace Uno
             dgvReportes.Columns.Clear();
             if (checkCualquiera.Checked)
             {
-                dgvReportes.DataSource = db.Salidas.ToList().Where(x => x.Tipo == "Anticipado").ToList();
+                dgvReportes.DataSource = db.Salidas.ToList().Where(x => x.Tipo == "Anticipado").ToList().Select(x => new { x.Id, x.Fecha, x.Hora, x.Tipo, x.Users.FullName }).ToList();
             }
             else
             {
-                dgvReportes.DataSource = db.Salidas.ToList().Where(x => x.Tipo == "Anticipado").ToList().Where(x => x.Fecha == calendarDia.SelectionEnd.Date).ToList();
+                dgvReportes.DataSource = db.Salidas.ToList().Where(x => x.Tipo == "Anticipado").ToList().Where(x => x.Fecha == calendarDia.SelectionEnd.Date).ToList().Select(x => new { x.Id, x.Fecha, x.Hora, x.Tipo, x.Users.FullName }).ToList();
             }
         }
 
@@ -77,17 +76,12 @@ namespace Uno
             dgvReportes.Columns.Clear();
             if (checkCualquiera.Checked)
             {
-                dgvReportes.DataSource = db.Faltas.ToList();
+                dgvReportes.DataSource = db.Faltas.ToList().Select(x => new { x.Id, x.Fecha, x.Users.FullName }).ToList();
             }
             else
             {
-                dgvReportes.DataSource = db.Faltas.ToList().Where(x => x.Fecha == calendarDia.SelectionEnd.Date).ToList();
+                dgvReportes.DataSource = db.Faltas.ToList().Where(x => x.Fecha == calendarDia.SelectionEnd.Date).ToList().Select(x => new { x.Id, x.Fecha, x.Users.FullName }).ToList();
             }
-        }
-
-        private void calendarDia_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
         }
     }
 }

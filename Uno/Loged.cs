@@ -74,8 +74,12 @@ namespace Uno
         private void btnMarcarEntrada_Click(object sender, EventArgs e)
         {
             if (CheckEntrada()) { return; }
+
             //Verificar dia laboral
-            if(!user.UserWorkDays.Where(x => x.DiaSemana == (int)DateTime.Today.DayOfWeek).Any()){
+            int diaSemanaActual = (int)DateTime.Today.DayOfWeek == 0 ? 7 : (int)DateTime.Today.DayOfWeek;
+
+            if (!user.UserWorkDays.Any(x => x.DiaSemana == diaSemanaActual))
+            {
                 MessageBox.Show("Hoy no es un día laboral para usted, no puede marcar entrada.");
                 return;
             }

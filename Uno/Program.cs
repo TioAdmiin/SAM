@@ -16,6 +16,9 @@ namespace Uno
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            FaltasManager.Iniciar();
+
             Application.Run(new Login());
         }
     }
