@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -40,16 +41,32 @@ namespace Uno
 
         private Users ValidateCredentials(string username, string password)
         {
-            DB1Entities db = new DB1Entities();
-            List<Users> users = db.Users.ToList();
-            foreach (Users u in users)
+            using (DB1Entities db = new DB1Entities())
             {
-                if (u.Username == username && u.Password == password)
+                Users user = db.Users
+                    .Include("Entradas")
+                    .Include("Salidas")
+                    .Include("UserWorkDays")
+                    .FirstOrDefault(u => u.Username == username);
+
+                if (user == null)
                 {
-                    return u;
+                    return null;
                 }
+
+                if (!PasswordHasher.VerifyPassword(password, user.Password))
+                {
+                    return null;
+                }
+
+                if (!PasswordHasher.IsHashedPassword(user.Password))
+                {
+                    user.Password = PasswordHasher.HashPassword(password);
+                    db.SaveChanges();
+                }
+
+                return user;
             }
-            return null; // Cambia esto según tu lógica de validación
         }
     }
 }

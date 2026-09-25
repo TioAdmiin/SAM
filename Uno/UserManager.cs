@@ -55,7 +55,7 @@ namespace Uno
                 tbId.Text = selectedUser.Id.ToString();
                 tbFullName.Text = selectedUser.FullName;
                 tbUsername.Text = selectedUser.Username;
-                tbPassword.Text = selectedUser.Password;
+                tbPassword.Clear();
                 checkAdmin.Checked = selectedUser.Admin;
 
                 dateEntrada.Value = DateTime.Today.Add(selectedUser.hora_inicio);
@@ -97,7 +97,10 @@ namespace Uno
             if (selectedUser == null) { return; }
             selectedUser.FullName = tbFullName.Text;
             selectedUser.Username = tbUsername.Text;
-            selectedUser.Password = tbPassword.Text;
+            if (!string.IsNullOrWhiteSpace(tbPassword.Text))
+            {
+                selectedUser.Password = PasswordHasher.HashPassword(tbPassword.Text);
+            }
             selectedUser.Admin = checkAdmin.Checked;
             
             //Horas
@@ -149,6 +152,12 @@ namespace Uno
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbPassword.Text))
+            {
+                MessageBox.Show("La contraseña no puede estar vacía.");
+                return;
+            }
+
             //Existe un usuario con ese username
             if (db.Users.Any(u => u.Username == tbUsername.Text))
             {
@@ -161,7 +170,7 @@ namespace Uno
             {
                 FullName = tbFullName.Text,
                 Username = tbUsername.Text,
-                Password = tbPassword.Text,
+                Password = PasswordHasher.HashPassword(tbPassword.Text),
                 Admin = checkAdmin.Checked,
                 hora_inicio = dateEntrada.Value.TimeOfDay,
                 hora_final = dateSalida.Value.TimeOfDay
