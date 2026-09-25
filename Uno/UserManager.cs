@@ -189,12 +189,24 @@ namespace Uno
                 MessageBox.Show("Sin usuario seleccionado.");
                 return; 
             }
+
+            DialogResult result = MessageBox.Show( "¿Realmente quieres borrar al usuario seleccionado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+
             // Autoeliminación
             if (selectedUser.Id == admin.Id) {
                 MessageBox.Show("No puedes eliminarte a ti mismo.");
                 return; 
             }
+
             db.Users.Remove(selectedUser);
+
+            selectedUser = null;
+
             db.SaveChanges();
             loadUsers();
         }
